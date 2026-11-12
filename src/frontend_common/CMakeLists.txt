@@ -18,6 +18,7 @@ add_library(frontend_common STATIC
     settings_generator.h settings_generator.cpp
     update_installer.h update_installer.cpp
     mod_manager.h mod_manager.cpp
+    mod_category_store.h mod_category_store.cpp
     nx_archive.h nx_archive.cpp)
 
 if (ENABLE_UPDATE_CHECKER)
@@ -32,4 +33,4 @@ endif()
 create_target_directory_groups(frontend_common)
 target_link_libraries(frontend_common
     PUBLIC core SimpleIni::SimpleIni frozen::frozen-headers
-    PRIVATE common Boost::headers)
+    PRIVATE common Boost::headers nlohmann_json::nlohmann_json)
